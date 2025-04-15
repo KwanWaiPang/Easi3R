@@ -153,3 +153,7 @@
 # *.zip
 
 checkpoints/*
+*.pth
+*.pyc
+demo_tmp/*
+viser_result/*

@@ -14,6 +14,11 @@ import copy
 import cv2
 import shutil
 
+# 处理服务器中evo的可视化问题
+import evo
+from evo.tools.settings import SETTINGS
+SETTINGS['plot_backend'] = 'Agg'
+
 from dust3r.inference import inference
 from dust3r.model import AsymmetricCroCo3DStereo
 from dust3r.image_pairs import make_pairs
