@@ -2,7 +2,7 @@
 <h1>测试 Easi3R: Estimating Disentangled Motion from DUSt3R Without Training</h1>
 </div>
 
-## 配置测试
+## 配置
 
 ```bash
 git clone https://github.com/KwanWaiPang/Easi3R.git
@@ -27,4 +27,22 @@ cd croco/models/curope/
 python setup.py build_ext --inplace
 cd ../../../
 
+```
+
+然后下载权重文件,包括了DUSt3R, MonST3R, RAFT 以及 SAM2四个模型的权重
+
+```bash
+# download the weights
+cd data
+bash download_ckpt.sh
+cd ..
+```
+
+## 测试
+通过运行下面代码来执行交互demo,结果会存放在`demo_tmp/{Sequence Name}`中
+
+```bash
+OPENBLAS_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=5 python demo.py \
+    --weights checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth 
+# To change backbone, --weights checkpoints/MonST3R_PO-TA-S-W_ViTLarge_BaseDecoder_512_dpt.pth
 ```
